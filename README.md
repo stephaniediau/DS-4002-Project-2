@@ -3,6 +3,23 @@
 ## Software & Platform
 
 ## Map of Documentation
+```
+DS-4002-Project-2 Folder Outline
+│
+├── DATA
+│   ├── averages_year_month.csv
+│   └── cleaned_data.csv
+│
+├── OUTPUT
+│   └── temp
+│
+├── SCRIPTS
+│   └── temp
+│
+├── LICENSE.md
+│
+└── README.md
+```
 
 ## Instructions for Reproduction of Results
 
