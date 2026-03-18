@@ -16,7 +16,7 @@ DS-4002-Project-2 Folder Outline
 ├── SCRIPTS
 │   └── temp
 │
-├── LICENSE.md
+├── LICENSE
 │
 └── README.md
 ```
