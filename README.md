@@ -14,7 +14,7 @@ DS-4002-Project-2 Folder Outline
 │   └── temp
 │
 ├── SCRIPTS
-│   └── temp
+│   └── Data_Prepocessing.ipynb
 │
 ├── LICENSE
 │
