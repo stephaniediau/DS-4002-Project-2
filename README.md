@@ -8,13 +8,16 @@ DS-4002-Project-2 Folder Outline
 │
 ├── DATA
 │   ├── averages_year_month.csv
-│   └── cleaned_data.csv
+│   ├── cleaned_data.csv
+│   └── data.csv
 │
 ├── OUTPUT
 │   └── temp
 │
 ├── SCRIPTS
-│   └── Data_Prepocessing.ipynb
+│   ├── Data_Prepocessing.ipynb
+│   ├── eda.ipynb
+│   └── sarima_modeling.Rmd
 │
 ├── LICENSE
 │

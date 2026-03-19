@@ -1,0 +1,118 @@
+---
+title: "sarima_modeling"
+author: "Stephanie Diau"
+date: "2026-03-17"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(tseries)
+library(forecast)
+library(tsibble)
+library(feasts)
+```
+
+
+```{r}
+#Read in .csv file with cleaned, averaged data of song features
+cleaned_avg_data <- read.csv("averages_year_month.csv") %>%
+  arrange(year, month)
+```
+
+
+```{r}
+#Make all song feature variables in to time series objects
+create_ts <- function(feature_col) {
+  ts(cleaned_avg_data[[feature_col]],
+     start = c(cleaned_avg_data$year[1], cleaned_avg_data$month[1]),
+     frequency = 12)}
+
+ts_acousticness <- create_ts("avg_acousticness")
+ts_speechiness <- create_ts("avg_speechiness")
+ts_valence <- create_ts("avg_valence")
+ts_tempo <- create_ts("avg_tempo")
+ts_duration <- create_ts("avg_duration")
+```
+
+```{r}
+#Create SARIMA model for each feature (with a function)
+
+fit_sarima_fast <- function(ts_data, feature_name) {
+  cat("\n--- Fitting SARIMA model for", feature_name, "---\n")
+  
+  #Checking stationarity
+  adf_test <- tseries::adf.test(ts_data)
+  cat("ADF p-value:", adf_test$p.value, "\n")
+  
+  #Using stepwise/approximation for a significantly faster model
+  model <- forecast::auto.arima(
+    ts_data,
+    seasonal = TRUE,
+    stepwise = TRUE,
+    approximation = TRUE,
+    trace = TRUE)
+  #Auto displays the best-fitting model
+  cat("\nBest model chosen by AICc:\n")
+  print(summary(model))
+  return(model)}
+
+#Fit model for each feature
+model_acousticness <- fit_sarima_fast(ts_acousticness, "Acousticness")
+model_speechiness <- fit_sarima_fast(ts_speechiness, "Speechiness")
+model_valence <- fit_sarima_fast(ts_valence, "Valence")
+model_tempo <- fit_sarima_fast(ts_tempo, "Tempo")
+model_duration <- fit_sarima_fast(ts_duration, "Duration")
+```
+
+```{r}
+#Visualizations
+diagnose_sarima <- function(model, ts_data, feature_name) {
+  #Checking residuals
+  checkresiduals(model)
+  
+  #Plot our observed vs fitted values plot over 40 years
+  autoplot(ts_data, series = "Observed") +
+    autolayer(fitted(model), series = "Fitted") +
+    ggtitle(paste("SARIMA Model Fit for", feature_name)) +
+    xlab("Time") + ylab(feature_name)}
+
+#Apply for each feature to see patterns over entire time period
+diagnose_sarima(model_acousticness, ts_acousticness, "Acousticness")
+diagnose_sarima(model_speechiness, ts_speechiness, "Speechiness")
+diagnose_sarima(model_valence, ts_valence, "Valence")
+diagnose_sarima(model_tempo, ts_tempo, "Tempo")
+diagnose_sarima(model_duration, ts_duration, "Duration")
+```
+
+
+```{r}
+#Faceted visualizations with monthly averages for identifiable patterns
+
+#Aggregate monthly averages over 40 years
+seasonal_data <- cleaned_avg_data %>%
+  group_by(month) %>%
+  summarise(
+    avg_acousticness = mean(avg_acousticness),
+    avg_speechiness  = mean(avg_speechiness),
+    avg_valence      = mean(avg_valence),
+    avg_tempo        = mean(avg_tempo),
+    avg_duration     = mean(avg_duration)) %>%
+  pivot_longer(
+    cols = starts_with("avg"),
+    names_to = "feature",
+    values_to = "value")
+
+#Plot with facets
+ggplot(seasonal_data, aes(x = month, y = value)) +
+  geom_line(color = "cornflowerblue", size = 1) +
+  geom_point(color = "cornflowerblue") +
+  facet_wrap(~ feature, scales = "free_y") + 
+  scale_x_continuous(breaks = 1:12) + #Manually adjust tick marks (1-12) for ease of interpretation
+  xlab("Month") +
+  ylab("Average Value") +
+  ggtitle("Average Song Feature by Month (40-Year Aggregated)") +
+  theme_minimal()
+```
+
