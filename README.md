@@ -1,7 +1,9 @@
 # DS-4002-Project-2: Spotify Song Features Time Series Analysis
 
 ## Software & Platform
-For data preprocessing, we used Jupyter Notebook with Python.  The “pandas” package needs to be installed for data preprocessing.  EDA visualizations were completed with python in a notebook file.  The “pandas” and “matplotlib” python packages were used for the visualizations.  “Matplotlib” and “pandas” need to be installed to regenerate these visualizations.  For modeling, analysis, and evaluation with the SARIMA model, we used RStudio with R inside an R markdown file.  The packages used in these steps were “tidyverse”, “tseries”, “forecast”, “tsibble”, and “feasts”.  These packages need to be installed for modeling, analysis, and evaluation.  
+For data preprocessing, we used Jupyter Notebook with Python.  The “pandas” package needs to be installed for data preprocessing.  EDA visualizations were completed with python in a notebook file.  The “pandas” and “matplotlib” python packages were used for the visualizations.  “Matplotlib” and “pandas” need to be installed to regenerate these visualizations.  
+
+For modeling, analysis, and evaluation with the SARIMA model, we used RStudio with R inside an R markdown file.  The packages used in these steps were “tidyverse”, “tseries”, “forecast”, “tsibble”, and “feasts”.  These packages need to be installed for modeling, analysis, and evaluation.  
 
 All work was also completed on Mac OS.  
 
@@ -15,7 +17,7 @@ DS-4002-Project-2 Folder Outline
 │   └── data.csv
 │
 ├── OUTPUT
-│   └── temp
+│   └── TBD
 │
 ├── SCRIPTS
 │   ├── Data_Prepocessing.ipynb
@@ -28,6 +30,9 @@ DS-4002-Project-2 Folder Outline
 ```
 
 ## Instructions for Reproduction of Results
+To reproduce our results...
+
+Complete the SARIMA modeling and evaluation process by first installing the five packages in R listed above in this README. Download the 'sarima_modeling.Rmd' script from the SCRIPTS folder and run the entire thing using R. Make sure to have the cleaned data files (specifically 'averages_year_month.csv') in the same location, or set working directory to the location of the data prior to running the script. All results should mimic the relevant output as found in the OUTPUT file exactly. 
 
 ## References
 [1] calebelgut, “GitHub - calebelgut/spotify-lstm: Classification & Time Series Analysis of Spotify Data using Grid Searched Random Forest & LSTM.,” GitHub, 2025. https://github.com/calebelgut/spotify-lstm (accessed Feb. 25, 2026).
