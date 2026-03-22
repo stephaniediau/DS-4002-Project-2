@@ -1,6 +1,9 @@
 # DS-4002-Project-2: Spotify Song Features Time Series Analysis
 
 ## Software & Platform
+For data preprocessing, we used Jupyter Notebook with Python.  The “pandas” package needs to be installed for data preprocessing.  EDA visualizations were completed with python in a notebook file.  The “pandas” and “matplotlib” python packages were used for the visualizations.  “Matplotlib” and “pandas” need to be installed to regenerate these visualizations.  For modeling, analysis, and evaluation with the SARIMA model, we used RStudio with R inside an R markdown file.  The packages used in these steps were “tidyverse”, “tseries”, “forecast”, “tsibble”, and “feasts”.  These packages need to be installed for modeling, analysis, and evaluation.  
+
+All work was also completed on Mac OS.  
 
 ## Map of Documentation
 ```
