@@ -30,7 +30,9 @@ DS-4002-Project-2 Folder Outline
 ```
 
 ## Instructions for Reproduction of Results
-To reproduce our results...
+To reproduce our results, first download the data from the DATA directory titled ‘SpotifyData.csv’.  Be sure to install the packages required for data preprocessing, these packages are listed in the Software & Platform section of this README file.  After this, run the ‘Data_Preprocessing.ipynb’ script found in the SCRIPTS directory.  This will produce the cleaned data file and a file with the average of song features by month by year in .csv format.  Once these files are produced, ensure these .csv files are in the DATA directory.
+
+.... 
 
 Complete the SARIMA modeling and evaluation process by first installing the five packages in R listed above in this README. Download the 'sarima_modeling.Rmd' script from the SCRIPTS folder and run the entire thing using R. Make sure to have the cleaned data files (specifically 'averages_year_month.csv') in the same location, or set working directory to the location of the data prior to running the script. All results should mimic the relevant output as found in the OUTPUT file exactly. 
 
