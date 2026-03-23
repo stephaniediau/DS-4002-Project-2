@@ -1,0 +1,3 @@
+term,coefficient,p_value,significant_05
+ar.S.L12,0.9499531441206692,0.0,True
+ma.S.L12,-1.0153193134425558,2.3753813871022097e-13,True
