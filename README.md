@@ -12,6 +12,7 @@ All work was also completed on Mac OS.
 DS-4002-Project-2 Folder Outline
 │
 ├── DATA
+│   ├── Data_Appendix_DS4002_Group1_Project2.pdf
 │   ├── averages_year_month.csv
 │   ├── cleaned_data.csv
 │   └── data.csv
