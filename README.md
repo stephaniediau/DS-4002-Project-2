@@ -22,6 +22,7 @@ DS-4002-Project-2 Folder Outline
 ├── OUTPUT
 │   ├── acousticness_sarima_coefficients.csv
 │   ├── acousticness_seasonal_terms.csv
+│   ├── Aggregated Song by Month Plot.png
 │   ├── duration_sarima_coefficients.csv
 │   ├── duration_seasonal_terms.csv
 │   ├── sarima_seasonality_summary.csv
@@ -38,6 +39,8 @@ DS-4002-Project-2 Folder Outline
 │   ├── evaluation.ipynb
 │   └── sarima_modeling.Rmd
 │
+├── DS4002 Project 2 Slides.pdf
+│
 ├── LICENSE
 │
 └── README.md
@@ -48,7 +51,7 @@ To reproduce our results, first download the data from the DATA directory titled
 
 Complete the SARIMA modeling and evaluation process by first installing the five packages in R listed above in this README. Download the 'sarima_modeling.Rmd' script from the SCRIPTS folder and run the entire thing using R. Make sure to have the cleaned data files (specifically 'averages_year_month.csv') in the same location, or set working directory to the location of the data prior to running the script. All results should mimic the relevant output as found in the OUTPUT file exactly. 
 
-Finally, complete the second evaluation process by again installing the needed packages listed in the software section above. Use the same cleaned data file as listed in the step prior and run the 'evaluation.ipynb' in it's entirety in Python. You should end up with the .csv files that are listed in the OUTPUT folder as a result of the script as well as the relevant Python output that is also located in the OUTPUT folder. 
+Finally, complete the second evaluation process by again installing the needed packages listed in the software section above. Use the same cleaned data file as listed in the step prior and run the 'evaluation.ipynb' in it's entirety in Python. You should end up with the relevant .csv files that are listed in the OUTPUT folder. 
 
 ## References
 [1] calebelgut, “GitHub - calebelgut/spotify-lstm: Classification & Time Series Analysis of Spotify Data using Grid Searched Random Forest & LSTM.,” GitHub, 2025. https://github.com/calebelgut/spotify-lstm (accessed Feb. 25, 2026).
